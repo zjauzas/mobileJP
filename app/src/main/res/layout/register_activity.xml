@@ -14,7 +14,7 @@
         android:id="@+id/iv_title"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/title" />
 
     <TextView
@@ -31,12 +31,21 @@
         android:id="@+id/tv_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="casual"
         android:text="Sign Up"
         android:textColor="@color/text2"
         android:textSize="25dp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvadminverregist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="Admin Mode"
+        android:textColor="@color/text2"
+        android:textSize="15dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
