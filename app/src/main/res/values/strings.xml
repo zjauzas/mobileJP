@@ -17,4 +17,5 @@
     <string name="nohp">Nomor Telepon</string>
     <string name="notlportu">Nomor Telepon Orang Tua</string>
     <string name="empty">Belum Ada Data</string>
+    <string name="google_sign_in">Akun Google</string>
 </resources>
