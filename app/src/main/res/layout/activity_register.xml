@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:padding="18dp"
+    android:orientation="vertical"
+    tools:context=".ActivityRegister"
+    android:background="@color/background1">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:src="@drawable/title"
+        android:id="@+id/iv_title"
+        android:layout_marginTop="70dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_title"
+        android:text="@string/app_name"
+        android:textColor="@color/text2"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_signup"
+        android:text="Sign Up"
+        android:textColor="@color/text2"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_marginTop="70dp"/>
+
+
+    <EditText
+        android:id="@+id/et_emailSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:inputType="textEmailAddress"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:imeOptions="actionNext"
+        android:textColor="@color/text2"
+        android:textColorHint="@color/text2"
+        android:fontFamily="casual"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/et_passwordSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:imeOptions="actionNext"
+        android:textColor="@color/text2"
+        android:textColorHint="@color/text2"
+        android:fontFamily="casual"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/et_passwordSignup2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:imeActionLabel="Sign Up"
+        android:imeOptions="actionDone"
+        android:textColor="@color/text2"
+        android:textColorHint="@color/text2"
+        android:fontFamily="casual"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/button_signupSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_shape"
+        android:fontFamily="casual"
+        android:text="Sign Up"
+        android:textColor="@color/text1"
+        android:textStyle="bold"/>
+
+</LinearLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "678896514166",
+    "firebase_url": "https://jurnalprakerin.firebaseio.com",
+    "project_id": "jurnalprakerin",
+    "storage_bucket": "jurnalprakerin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678896514166:android:7744193eaad5cbb22d5b57",
+        "android_client_info": {
+          "package_name": "com.example.jurnalprakerin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "678896514166-6iff59sdpnn1t65jflvobli0hgs3fhn4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jurnalprakerin",
+            "certificate_hash": "d6cf49d392976f0ea21085ee40e4059e511ee7e2"
+          }
+        },
+        {
+          "client_id": "678896514166-hj8anlrgi7er87a8pf1l6fhej7bbqnb9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBX02fJKApmVnJZDCDQCFjiDgSvJI0EY40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "678896514166-hj8anlrgi7er87a8pf1l6fhej7bbqnb9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
