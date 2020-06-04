@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/graylight"
+    android:layout_gravity="center"
+    android:minWidth="350dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ubah Data Diri"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_margin="5dp"
+            android:fontFamily="casual"
+            android:textStyle="bold"
+            android:textColor="@color/item"
+            android:textSize="25dp"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"/>
+        <Button
+            android:id="@+id/btncloseprofile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:background="@drawable/exit"
+            android:layout_margin="5dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/etg_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nama"
+                android:background="@drawable/menu_shape"
+                android:textColorHint="@color/item"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textColor="@color/item"
+                android:textSize="20dp"
+                android:paddingLeft="20dp"
+                android:layout_margin="5dp">
+            </EditText>
+
+            <EditText
+                android:id="@+id/etg_nis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nis"
+                android:textColorHint="@color/item"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textColor="@color/item"
+                android:textSize="20dp"
+                android:background="@drawable/menu_shape"
+                android:paddingLeft="20dp"
+                android:layout_margin="5dp"
+                android:inputType="number">
+            </EditText>
+
+            <EditText
+                android:id="@+id/etg_tl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ttl"
+                android:textColorHint="@color/item"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textColor="@color/item"
+                android:textSize="20dp"
+                android:background="@drawable/menu_shape"
+                android:paddingLeft="20dp"
+                android:layout_margin="5dp">
+            </EditText>
+
+            <EditText
+                android:id="@+id/etg_jk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/jk"
+                android:textColorHint="@color/item"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textColor="@color/item"
+                android:textSize="20dp"
+                android:background="@drawable/menu_shape"
+                android:paddingLeft="20dp"
+                android:layout_margin="5dp">
+            </EditText>
+
+            <EditText
+                android:id="@+id/etg_nohp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nohp"
+                android:textColorHint="@color/item"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textColor="@color/item"
+                android:textSize="20dp"
+                android:background="@drawable/menu_shape"
+                android:paddingLeft="20dp"
+                android:layout_margin="5dp"
+                android:inputType="number">
+            </EditText>
+
+            <EditText
+                android:id="@+id/etg_alamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/alamat"
+                android:minLines="5"
+                android:textColorHint="@color/item"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textColor="@color/item"
+                android:textSize="20dp"
+                android:background="@drawable/menu_shape"
+                android:paddingLeft="20dp"
+                android:layout_margin="5dp">
+            </EditText>
+
+            <EditText
+                android:id="@+id/etg_tempatprakerin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/tempatprakerin"
+                android:textColorHint="@color/item"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textColor="@color/item"
+                android:textSize="20dp"
+                android:background="@drawable/menu_shape"
+                android:paddingLeft="20dp"
+                android:layout_margin="5dp"
+                android:inputType="text">
+            </EditText>
+
+            <EditText
+                android:id="@+id/etg_namapembimbing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/namaPembimbing"
+                android:textColorHint="@color/item"
+                android:fontFamily="casual"
+                android:textStyle="bold"
+                android:textColor="@color/item"
+                android:textSize="20dp"
+                android:background="@drawable/menu_shape"
+                android:paddingLeft="20dp"
+                android:layout_margin="5dp"
+                android:inputType="text">
+            </EditText>
+            <Button
+                android:id="@+id/btnupdateprofile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_shape"
+                android:fontFamily="casual"
+                android:text="Perbarui Data Diri"
+                android:textColor="@color/putih"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="30dp"/>
+
+            <!--<LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:weightSum="2"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_delete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Hapus Data Siswa"
+                    android:background="@drawable/button_shape"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    android:fontFamily="casual"
+                    android:textStyle="bold"
+                    android:textColor="@color/putih"
+                    android:textSize="20dp"/>
+            </LinearLayout>-->
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -4,25 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SplashActivity"
-    android:background="@color/back1">
+    tools:context=".ActivitySplash"
+    android:background="@color/abuabuprimary">
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="125dp"
+        android:layout_height="130dp"
         android:src="@drawable/title"
-        android:layout_marginTop="230dp"/>
+        android:layout_marginTop="200dp"/>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/title"
         android:text="@string/app_name"
-        android:fontFamily="serif"
         android:textSize="35dp"
         android:gravity="center_horizontal"
-        android:layout_marginTop="330dp"
-        android:textColor="@color/text1"/>
+        android:layout_centerVertical="true"
+        android:textColor="@color/putih"
+        android:fontFamily="casual"
+        android:textStyle="bold"/>
 
     <ProgressBar
         android:id="@+id/splashBar"
@@ -30,6 +31,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="80dp" />
+        android:layout_marginBottom="100dp" />
 
 </RelativeLayout>
