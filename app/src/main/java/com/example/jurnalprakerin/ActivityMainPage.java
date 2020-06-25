@@ -26,8 +26,8 @@ public class ActivityMainPage extends AppCompatActivity {
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbarLayout.setTitle("Beranda");
-        collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(this, R.color.putih));
-        collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(this, R.color.abuabuprimary));
+        collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(this, R.color.raven));
+        collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(this, R.color.raven));
 
         //creating event listener for clickable cardview
         CardView btn_list = findViewById(R.id.listaktifitas);
@@ -44,6 +44,14 @@ public class ActivityMainPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ActivityMainPage.this, ActivityProfile.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActivityMainPage.this, ActivityDaftarAktivitas.class);
                 startActivity(intent);
             }
         });

@@ -16,17 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityProfile" android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".ActivityProfile" android:label="@string/app_name"/>
         <activity android:name=".ActivityMainPage" android:label="@string/app_name"/>
         <activity android:name=".ActivityRegist" android:label="@string/app_name"/>
         <activity android:name=".ActivityLogin" android:label="@string/app_name"/>
+        <activity android:name=".ActivityDaftarAktivitas" android:label="@string/app_name"/>
         <activity android:name=".ActivityProfileEdit" android:label="@string/app_name" android:theme="@android:style/Theme.DeviceDefault.Dialog.NoActionBar"/>
+        <activity android:name=".ActivityDaftarAktivitasAdd" android:label="@string/app_name" android:theme="@android:style/Theme.DeviceDefault.Dialog.NoActionBar"/>
     </application>
 
 </manifest>

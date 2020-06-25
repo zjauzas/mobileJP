@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ActivitySplash"
-    android:background="@color/abuabuprimary">
+    android:background="@color/darkestIndigo">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -21,7 +21,7 @@
         android:textSize="35dp"
         android:gravity="center_horizontal"
         android:layout_centerVertical="true"
-        android:textColor="@color/putih"
+        android:textColor="@color/lightestDaisy"
         android:fontFamily="casual"
         android:textStyle="bold"/>
 

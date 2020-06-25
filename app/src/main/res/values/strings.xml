@@ -19,6 +19,18 @@
     <string name="empty">Belum Ada Data</string>
     <string name="google_sign_in">Akun Google</string>
 
+    <array name="tempatPrakerin">
+        <item>Ilvermorny</item>
+        <item>Hogwarts</item>
+        <item>Castelobruxo</item>
+    </array>
+    <array name="jk">
+        <item>Laki-Laki</item>
+        <item>Perempuan</item>
+    </array>
+
+
+
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
     <string name="infoGuru">Daftar Guru</string>
     <string name="infoGuru2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -30,6 +42,11 @@
     <string name="infoIndustri">Daftar Industri</string>
     <string name="infoSiswa">Daftar Siswa</string>
     <string name="tempatprakerin">Tempat Prakerin</string>
+    <string name="kegiatan">Kegiatan</string>
+    <string name="deskeg">Deskripsi Kegiatan</string>
+    <string name="tempatKegiatan">Tempat Kegiatan</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="waktu">Waktu</string>
 
 
 </resources>

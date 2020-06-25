@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/proback"
-    android:fitsSystemWindows="true">
+    android:background="@color/darkestIndigo"
+    android:fitsSystemWindows="true"
+    tools:context=".ActivityProfile">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="335dp"
+        android:layout_height="200dp"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay"
         app:expandedTitleMarginEnd="64dp"
@@ -22,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="@color/lightestDaisy"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <RelativeLayout
@@ -32,26 +34,26 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="350dp"
-                    android:background="@color/abuabuprimary"
+                    android:background="@color/lightestDaisy"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:id="@+id/photoprofile"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="45dp"
-                        android:src="@drawable/acc" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/photoprofile"-->
+<!--                        android:layout_width="150dp"-->
+<!--                        android:layout_height="150dp"-->
+<!--                        android:layout_gravity="center_horizontal"-->
+<!--                        android:layout_marginTop="45dp"-->
+<!--                        android:src="@drawable/acc" />-->
 
                     <TextView
                         android:id="@+id/nameprofile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="35dp"
                         android:fontFamily="casual"
                         android:text="Nama"
-                        android:textColor="#fff"
+                        android:textColor="@color/raven"
                         android:textSize="27sp"
                         android:textStyle="bold" />
 
@@ -62,7 +64,7 @@
                         android:layout_gravity="center_horizontal"
                         android:fontFamily="casual"
                         android:text="Email"
-                        android:textColor="#fff"
+                        android:textColor="@color/raven"
                         android:textSize="21sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -74,12 +76,14 @@
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
                 app:layout_scrollFlags="scroll|enterAlways"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:navigationIcon="@drawable/back"/>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:background="@color/darkestIndigo"
         android:id="@+id/nestedscrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -111,7 +115,7 @@
                     android:fontFamily="casual"
                     android:paddingLeft="20dp"
                     android:text="Nomor Induk Siswa"
-                    android:textColor="@color/item"
+                    android:textColor="@color/lightestDaisy"
                     android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -136,7 +140,7 @@
                     android:fontFamily="casual"
                     android:paddingLeft="20dp"
                     android:text="Tanggal Lahir"
-                    android:textColor="@color/item"
+                    android:textColor="@color/lightestDaisy"
                     android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -161,7 +165,7 @@
                     android:fontFamily="casual"
                     android:paddingLeft="20dp"
                     android:text="Jenis Kelamin"
-                    android:textColor="@color/item"
+                    android:textColor="@color/lightestDaisy"
                     android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -186,7 +190,7 @@
                     android:fontFamily="casual"
                     android:paddingLeft="20dp"
                     android:text="Nomor Telepon"
-                    android:textColor="@color/item"
+                    android:textColor="@color/lightestDaisy"
                     android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -211,7 +215,7 @@
                     android:fontFamily="casual"
                     android:paddingLeft="20dp"
                     android:text="Alamat Tempat Tinggal"
-                    android:textColor="@color/item"
+                    android:textColor="@color/lightestDaisy"
                     android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -236,7 +240,7 @@
                     android:fontFamily="casual"
                     android:paddingLeft="20dp"
                     android:text="Tempat Prakerin"
-                    android:textColor="@color/item"
+                    android:textColor="@color/lightestDaisy"
                     android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -261,7 +265,7 @@
                     android:fontFamily="casual"
                     android:paddingLeft="20dp"
                     android:text="Nama Pembimbing"
-                    android:textColor="@color/item"
+                    android:textColor="@color/lightestDaisy"
                     android:textSize="20dp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -275,20 +279,54 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/button_shape"
                     android:fontFamily="casual"
-                    android:text="   Ubah Data Diri"
-                    android:textColor="@color/putih"
-                    android:textSize="10dp"
+                    android:text="    Ubah Data Diri"
+                    android:textColor="@color/raven"
+                    android:textSize="12dp"
                     android:textStyle="bold"
-                    android:paddingRight="20dp"
-                    android:paddingLeft="15dp"
-                    android:drawableLeft="@drawable/edit"/>
+                    android:drawableLeft="@drawable/edit"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"/>
             </RelativeLayout>
 
+            <androidx.cardview.widget.CardView
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:id="@+id/cvsignout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                app:cardBackgroundColor="@color/lightestDaisy"
+                android:layout_marginBottom="50dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        android:text="SIGN OUT"
+                        android:fontFamily="casual"
+                        android:textSize="20dp"
+                        android:textColor="@color/raven"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/item"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

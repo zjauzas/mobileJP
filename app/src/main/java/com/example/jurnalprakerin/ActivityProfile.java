@@ -1,21 +1,36 @@
 package com.example.jurnalprakerin;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 //Activity implements View.OnClickListener
 
 public class ActivityProfile extends AppCompatActivity {
+
+    private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +41,16 @@ public class ActivityProfile extends AppCompatActivity {
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         collapsingToolbarLayout.setTitle("Data Diri");
-        collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(this, R.color.putih));
-        collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(this, R.color.abuabuprimary));
+        collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(this, R.color.raven));
+        collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(this, R.color.lightestDaisy));
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActivityProfile.this, ActivityMainPage.class);
+                startActivity(intent);
+            }
+        });
 
         Button btnedit = findViewById(R.id.btn_editprofile);
         btnedit.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +61,16 @@ public class ActivityProfile extends AppCompatActivity {
             }
         });
 
+        CardView signout = findViewById(R.id.cvsignout);
+        signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logout();
+            }
+        });
+
+        display();
+
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,118 +79,59 @@ public class ActivityProfile extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });*/
-
-
-/*
-
-        TextView tvnama = findViewById(R.id.tvNama),
-                tvrole = findViewById(R.id.tvRole),
-                tvemail = findViewById(R.id.tvEmail),
-                tvloginnama = findViewById(R.id.tv_namaMain);
-
-        tvloginnama.setText(Preferences.getLoggedInUser(getBaseContext()));
-
-        */
-/*findViewById(R.id.button_logoutMain).setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                onBackPressed();
-            }
-        });*//*
-
-
-        Button update = findViewById(R.id.btn_profileUpdate);
-        update.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent = new Intent(ActivityProfile.this, ProfileEditActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        Button activity_profile = findViewById(R.id.activity_profile);
-        activity_profile.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent = new Intent(ActivityProfile.this, ActivityProfile.class);
-                startActivity(intent);
-            }
-        });
-
-        Button home = findViewById(R.id.home);
-        home.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent = new Intent(ActivityProfile.this, HomeActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        String nama, role, email;
-        Intent intent = getIntent();
-        nama = intent.getStringExtra("namaada");
-        role = intent.getStringExtra("roleada");
-        email = intent.getStringExtra("emailada");
-
-        if(nama == null && role == null && email == null)
-        {
-            tvnama.setText("Nama");
-            tvrole.setText("Role");
-            tvemail.setText("Email");
-        }
-        else
-        {
-            tvnama.setText(nama);
-            tvrole.setText(role);
-            tvemail.setText(email);
-        }
-
-        //Toast.makeText(this, nama+role+email, Toast.LENGTH_LONG).show();
     }
 
-    @Override
-    public void onClick(View v)
-    {
-        switch (v.getId())
-        {
-            case R.id.btn_profileUpdate:
-                TextView tvnama = findViewById(R.id.tvNama),
-                        tvrole = findViewById(R.id.tvRole),
-                        tvemail = findViewById(R.id.tvEmail);
+    private void display(){
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("siswa/"+firebaseUser.getUid());
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    String nama = dataSnapshot.child("nama").getValue().toString();
+                    String nis = dataSnapshot.child("nis").getValue().toString();
+                    String email = dataSnapshot.child("email").getValue().toString();
+                    String ttl = dataSnapshot.child("ttl").getValue().toString();
+                    String jk = dataSnapshot.child("jk").getValue().toString();
+                    String nope = dataSnapshot.child("nomortelepon").getValue().toString();
+                    String alamat = dataSnapshot.child("alamat").getValue().toString();
+                    String tempatPrakerin = dataSnapshot.child("tempatPrakerin").getValue().toString();
+                    String namaPembimbing = dataSnapshot.child("namaPembimbing").getValue().toString();
 
-                String nama, role, email;
+                    TextView tvnama = findViewById(R.id.nameprofile);
+                    TextView tvnis = findViewById(R.id.nisprofile);
+                    TextView tvemail = findViewById(R.id.emailprofile);
+                    TextView tvttl = findViewById(R.id.birthdateprofile);
+                    TextView tvjk = findViewById(R.id.genderprofile);
+                    TextView tvnope = findViewById(R.id.phonenumprofile);
+                    TextView tvalamat = findViewById(R.id.houseaddrprofile);
+                    TextView tvTempatPrakerin = findViewById(R.id.industryaddrprofile);
+                    TextView tvNamaPembimbing = findViewById(R.id.prakerinsupervisorprofile);
 
-                Intent intent = getIntent();
-                nama = intent.getStringExtra("namaada");
-                role = intent.getStringExtra("roleada");
-                email = intent.getStringExtra("emailada");
-                tvnama.setText(nama);
-                tvrole.setText(role);
-                tvemail.setText(email);
+                    tvnama.setText(nama);
+                    tvnis.setText(nis);
+                    tvemail.setText(email);
+                    tvttl.setText(ttl);
+                    tvjk.setText(jk);
+                    tvnope.setText(nope);
+                    tvalamat.setText(alamat);
+                    tvTempatPrakerin.setText(tempatPrakerin);
+                    tvNamaPembimbing.setText(namaPembimbing);
+                } else {
+                    Toast.makeText(ActivityProfile.this, "teu aya", Toast.LENGTH_LONG).show();
+                    String email = firebaseUser.getEmail().toString();
+                    TextView tvemail = findViewById(R.id.emailprofile);
+                    tvemail.setText(email);
+                }
+            }
 
-                Toast.makeText(this, nama+role+email, Toast.LENGTH_LONG).show();
-                break;
-        }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
+            }
+        });
     }
 
-    public void logout(View view)
-    {
-        FirebaseAuth.getInstance().signOut();
-        onBackPressed();
-    }
-
-    @Override
-    public void onBackPressed()
-    {
+    private void logout() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false);
         builder.setMessage("Yakin Ingin Keluar?");
@@ -165,7 +139,7 @@ public class ActivityProfile extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 //if user pressed "yes", then he is allowed to exit from application
-                Preferences.clearLoggedInUser(getBaseContext());
+                FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getBaseContext(), ActivityLogin.class));
                 finish();
             }
@@ -179,10 +153,9 @@ public class ActivityProfile extends AppCompatActivity {
         });
         AlertDialog alert = builder.create();
         alert.show();
-*/
     }
 
-    @Override
+/*    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_scrolling, menu);
@@ -191,7 +164,6 @@ public class ActivityProfile extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
         switch (item.getItemId()) {
             case R.id.menusetting:
                 startActivity(new Intent(this, ActivityMainPage.class));
@@ -199,7 +171,5 @@ public class ActivityProfile extends AppCompatActivity {
             default:
                 return true;
         }
-
-
-    }
+    }*/
 }

@@ -8,6 +8,11 @@
     <color name="trans">#00FAFAFA</color>
     <color name="lightgray">#C8C8C8</color>
     <color name="graylight">#fafafa</color>
+    <color name="darkestIndigo">#093145</color>
+    <color name="lightestDaisy">#efd469</color>
+    <color name="raven">#373d3f</color>
+    <color name="lilia">#f2f3f4</color>
+
 
     <color name="proback">#EDEDED</color>
 
