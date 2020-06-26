@@ -27,7 +27,7 @@ public class ActivityDaftarAktivitasAdd extends Activity {
 
     private Aktivitas aktivitas = new Aktivitas();
 
-    int nomorKegiatan=0;
+    long nomorKegiatan=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class ActivityDaftarAktivitasAdd extends Activity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    nomorKegiatan= (int) dataSnapshot.getChildrenCount();
+                    nomorKegiatan= (long) dataSnapshot.getChildrenCount();
                 }
             }
 
@@ -83,7 +83,7 @@ public class ActivityDaftarAktivitasAdd extends Activity {
         String waktu = etgwaktu.getText().toString();
 
 
-        aktivitas.setNomorKegiatan(nomorKegiatan);
+        aktivitas.setNomorKegiatan(String.valueOf(nomorKegiatan));
         aktivitas.setKegiatan(kegiatan);
         aktivitas.setDeskripsiKegiatan(deskeg);
         aktivitas.setTempatKegiatan(tempatkegiatan);

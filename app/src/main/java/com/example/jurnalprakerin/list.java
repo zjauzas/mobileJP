@@ -27,7 +27,7 @@ public class list extends ArrayAdapter<Aktivitas> {
         LayoutInflater layoutInflater = context.getLayoutInflater();
         View view = layoutInflater.inflate(R.layout.list_fragment, null, true);
 
-//        TextView nokegTV = view.findViewById(R.id.nomorKegiatanTV);
+        TextView nokegTV = view.findViewById(R.id.nomorKegiatanTV);
         TextView kegTV = view.findViewById(R.id.kegiatanTV);
         TextView desKegTV = view.findViewById(R.id.deskripsiTV);
         TextView tempatTV = view.findViewById(R.id.tempatTV);
@@ -36,7 +36,7 @@ public class list extends ArrayAdapter<Aktivitas> {
 
         Aktivitas aktivitas = aktivitasList.get(position);
 
-//        nokegTV.setText(aktivitas.getNomorKegiatan());
+        nokegTV.setText(String.valueOf(aktivitas.getNomorKegiatan()));
         kegTV.setText(aktivitas.getKegiatan());
         desKegTV.setText(aktivitas.getDeskripsiKegiatan());
         tempatTV.setText(aktivitas.getTempatKegiatan());

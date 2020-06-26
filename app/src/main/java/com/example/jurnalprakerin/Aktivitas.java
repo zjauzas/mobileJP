@@ -1,17 +1,17 @@
 package com.example.jurnalprakerin;
 
 public class Aktivitas {
-    public int nomorKegiatan;
-    public String kegiatan, deskripsiKegiatan, tempatKegiatan, tanggal, waktu;
+//    public int ;
+    public String nomorKegiatan, kegiatan, deskripsiKegiatan, tempatKegiatan, tanggal, waktu;
 
     public Aktivitas() {
     }
 
-    public int getNomorKegiatan() {
+    public String getNomorKegiatan() {
         return nomorKegiatan;
     }
 
-    public void setNomorKegiatan(int nomorKegiatan) {
+    public void setNomorKegiatan(String nomorKegiatan) {
         this.nomorKegiatan = nomorKegiatan;
     }
 
