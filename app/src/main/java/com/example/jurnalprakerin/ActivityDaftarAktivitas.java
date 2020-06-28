@@ -3,6 +3,7 @@ package com.example.jurnalprakerin;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,7 +28,7 @@ public class ActivityDaftarAktivitas extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-    private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("aktivitasPrakerin/"+firebaseUser.getUid());
+    private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("aktivitasPrakerin/" + firebaseUser.getUid());
 
     ListView listView;
 
@@ -60,32 +61,45 @@ public class ActivityDaftarAktivitas extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ActivityDaftarAktivitas.this, ActivityDaftarAktivitasAdd.class);
                 startActivity(intent);
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
             }
         });
 
         listView = findViewById(R.id.list_view);
 
         aktivitasList = new ArrayList<>();
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Aktivitas aktivitas = aktivitasList.get(position);
+                Intent intent = new Intent(getApplicationContext(), ActivityDaftarAktivitasUpdateDelete.class);
+                intent.putExtra("nomorKegiatan", aktivitas.getNomorKegiatan());
+                intent.putExtra("kegiatan", aktivitas.getKegiatan());
+                intent.putExtra("deskripsi_kegiatan", aktivitas.getdeskripsi_kegiatan());
+                intent.putExtra("tempat_kegiatan", aktivitas.gettempat_kegiatan());
+                intent.putExtra("tanggal", aktivitas.getTanggal());
+                intent.putExtra("waktu", aktivitas.getWaktu());
+                startActivity(intent);
+                return false;
+            }
+        });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()){
+                if (dataSnapshot.exists()) {
                     aktivitasList.clear();
-                    for (DataSnapshot aktivitasSnapshot: dataSnapshot.getChildren()){
+                    for (DataSnapshot aktivitasSnapshot : dataSnapshot.getChildren()) {
                         Aktivitas aktivitas = aktivitasSnapshot.getValue(Aktivitas.class);
                         aktivitasList.add(aktivitas);
                     }
                     list list = new list(ActivityDaftarAktivitas.this, aktivitasList);
                     listView.setAdapter(list);
-                }else {
+                } else {
                     TextView tvEmpty = findViewById(R.id.empty);
                     tvEmpty.setVisibility(View.VISIBLE);
                 }

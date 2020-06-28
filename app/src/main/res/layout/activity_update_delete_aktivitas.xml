@@ -7,6 +7,7 @@
     android:background="@color/lightestDaisy"
     android:layout_gravity="center"
     android:minWidth="350dp"
+    android:maxHeight="500dp"
     tools:context=".ActivityProfileEdit"
     android:id="@+id/editprofilepage">
 
@@ -17,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ubah Data Diri"
+            android:text="Ubah/Hapus Aktivitas"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
             android:layout_margin="5dp"
@@ -29,7 +30,7 @@
             android:paddingLeft="20dp"
             android:paddingTop="5dp"/>
         <Button
-            android:id="@+id/btncloseprofile"
+            android:id="@+id/btncloseudaktivitas"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="right"
@@ -52,10 +53,10 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/etg_nama"
+                android:id="@+id/etg_keg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nama"
+                android:hint="@string/kegiatan"
                 android:background="@drawable/menu_shape"
                 android:textColorHint="@color/item"
                 android:fontFamily="casual"
@@ -67,10 +68,11 @@
             </EditText>
 
             <EditText
-                android:id="@+id/etg_nis"
+                android:id="@+id/etg_desKeg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nis"
+                android:hint="@string/deskeg"
+                android:minLines="5"
                 android:textColorHint="@color/item"
                 android:fontFamily="casual"
                 android:textStyle="bold"
@@ -78,15 +80,14 @@
                 android:textSize="20dp"
                 android:background="@drawable/menu_shape"
                 android:paddingLeft="20dp"
-                android:layout_margin="5dp"
-                android:inputType="number">
+                android:layout_margin="5dp">
             </EditText>
 
             <EditText
-                android:id="@+id/etg_tl"
+                android:id="@+id/etg_tempat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/ttl"
+                android:hint="@string/tempatKegiatan"
                 android:textColorHint="@color/item"
                 android:fontFamily="casual"
                 android:textStyle="bold"
@@ -94,23 +95,9 @@
                 android:textSize="20dp"
                 android:background="@drawable/menu_shape"
                 android:paddingLeft="20dp"
-                android:layout_margin="5dp"
-                android:inputType="date">
+                android:layout_margin="5dp">
             </EditText>
 
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/etg_jk"
-                android:layout_width="match_parent"
-                android:layout_height="34dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/menu_shape"
-                android:fontFamily="casual"
-                android:entries="@array/jk"
-                android:paddingLeft="20dp"
-                android:textColor="@color/item"
-                android:textColorHint="@color/item"
-                android:textSize="20dp"
-                android:textStyle="bold"></androidx.appcompat.widget.AppCompatSpinner>
 
             <!--<Spinner
                 android:id="@+id/spinner_jk"
@@ -129,10 +116,25 @@
                 android:textStyle="bold" />-->
 
             <EditText
-                android:id="@+id/etg_nohp"
+                android:id="@+id/etg_tanggal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/nohp"
+                android:layout_margin="5dp"
+                android:background="@drawable/menu_shape"
+                android:fontFamily="casual"
+                android:hint="@string/tanggal"
+                android:inputType="date"
+                android:paddingLeft="20dp"
+                android:textColor="@color/item"
+                android:textColorHint="@color/item"
+                android:textSize="20dp"
+                android:textStyle="bold"></EditText>
+
+            <EditText
+                android:id="@+id/etg_waktu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/waktu"
                 android:textColorHint="@color/item"
                 android:fontFamily="casual"
                 android:textStyle="bold"
@@ -144,90 +146,32 @@
                 android:inputType="number">
             </EditText>
 
-            <EditText
-                android:id="@+id/etg_alamat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/alamat"
-                android:minLines="5"
-                android:textColorHint="@color/item"
-                android:fontFamily="casual"
-                android:textStyle="bold"
-                android:textColor="@color/item"
-                android:textSize="20dp"
-                android:background="@drawable/menu_shape"
-                android:paddingLeft="20dp"
-                android:layout_margin="5dp">
-            </EditText>
-
-            <androidx.appcompat.widget.AppCompatSpinner
-                android:id="@+id/etg_tempatprakerin"
-                android:layout_width="match_parent"
-                android:layout_height="34dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/menu_shape"
-                android:fontFamily="casual"
-                android:hint="@string/tempatprakerin"
-                android:inputType="text"
-                android:paddingLeft="20dp"
-                android:textColor="@color/item"
-                android:textColorHint="@color/item"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                android:entries="@array/tempatPrakerin"></androidx.appcompat.widget.AppCompatSpinner>
-
-            <EditText
-                android:id="@+id/etg_namapembimbing"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/namaPembimbing"
-                android:textColorHint="@color/item"
-                android:fontFamily="casual"
-                android:textStyle="bold"
-                android:textColor="@color/item"
-                android:textSize="20dp"
-                android:background="@drawable/menu_shape"
-                android:paddingLeft="20dp"
-                android:layout_margin="5dp"
-                android:inputType="text">
-            </EditText>
             <Button
-                android:id="@+id/btnupdateprofile"
+                android:id="@+id/btnUpdateAktivitas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/buttonstyle"
                 android:fontFamily="casual"
-                android:text="Perbarui Data Diri"
+                android:text="Perbarui AKtivitas"
+                android:textColor="@color/lightestDaisy"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="15dp"/>
+
+            <Button
+                android:id="@+id/btnDeleteAktivitas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/buttonstyle"
+                android:fontFamily="casual"
+                android:text="Hapus AKtivitas"
                 android:textColor="@color/lightestDaisy"
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:layout_marginBottom="30dp"/>
-
-
-
-            <!--<LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:weightSum="2"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/btn_delete"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Hapus Data Siswa"
-                    android:background="@drawable/button_shape"
-                    android:layout_marginTop="10dp"
-                    android:padding="10dp"
-                    android:fontFamily="casual"
-                    android:textStyle="bold"
-                    android:textColor="@color/putih"
-                    android:textSize="20dp"/>
-            </LinearLayout>-->
 
         </LinearLayout>
     </ScrollView>

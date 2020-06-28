@@ -38,8 +38,8 @@ public class list extends ArrayAdapter<Aktivitas> {
 
         nokegTV.setText(String.valueOf(aktivitas.getNomorKegiatan()));
         kegTV.setText(aktivitas.getKegiatan());
-        desKegTV.setText(aktivitas.getDeskripsiKegiatan());
-        tempatTV.setText(aktivitas.getTempatKegiatan());
+        desKegTV.setText(aktivitas.getdeskripsi_kegiatan());
+        tempatTV.setText(aktivitas.gettempat_kegiatan());
         tangalTV.setText(aktivitas.getTanggal());
         waktuTV.setText(aktivitas.getWaktu());
 

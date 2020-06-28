@@ -19,15 +19,18 @@
     <string name="empty">Belum Ada Data</string>
     <string name="google_sign_in">Akun Google</string>
 
-    <array name="tempatPrakerin">
+    <string-array name="tempatPrakerin">
+        <item>Tempat Prakerin</item>
         <item>Ilvermorny</item>
         <item>Hogwarts</item>
         <item>Castelobruxo</item>
-    </array>
-    <array name="jk">
+    </string-array>
+
+    <string-array name="jk">
+        <item>Jenis Kelamin</item>
         <item>Laki-Laki</item>
         <item>Perempuan</item>
-    </array>
+    </string-array>
 
 
 

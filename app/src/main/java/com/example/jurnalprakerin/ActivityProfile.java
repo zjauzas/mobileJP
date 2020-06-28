@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -117,7 +116,7 @@ public class ActivityProfile extends AppCompatActivity {
                     tvTempatPrakerin.setText(tempatPrakerin);
                     tvNamaPembimbing.setText(namaPembimbing);
                 } else {
-                    Toast.makeText(ActivityProfile.this, "teu aya", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(ActivityProfile.this, "teu aya", Toast.LENGTH_LONG).show();
                     String email = firebaseUser.getEmail().toString();
                     TextView tvemail = findViewById(R.id.emailprofile);
                     tvemail.setText(email);
