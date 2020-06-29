@@ -31,9 +31,9 @@ import java.util.Calendar;
 
 public class ActivityDaftarAktivitasAdd extends AppCompatActivity {
 
-    private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+    private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("aktivitasPrakerin/" + firebaseUser.getUid());
 
     private Aktivitas aktivitas = new Aktivitas();
 
@@ -82,23 +82,49 @@ public class ActivityDaftarAktivitasAdd extends AppCompatActivity {
             }
         });
 
+        /*databaseReference.limitToLast(1).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.hasChild("nomorKegiatan")) {
+                    String nokeg = (String) dataSnapshot.child("nomorKegiatan").getValue().toString();
+                    if (nokeg.equals(null)){
+                        nomorKegiatan= 1;
+                        Toast.makeText(ActivityDaftarAktivitasAdd.this, String.valueOf(nomorKegiatan), Toast.LENGTH_LONG).show();
+                    } else {
+                        nomorKegiatan= (Long.valueOf(nokeg)+1);
+                        Toast.makeText(ActivityDaftarAktivitasAdd.this, String.valueOf(nomorKegiatan), Toast.LENGTH_LONG).show();
+                    }
+                } else if (dataSnapshot.equals(null)) {
+                    Toast.makeText(ActivityDaftarAktivitasAdd.this, String.valueOf(nomorKegiatan), Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });*/
+
         databaseReference.limitToLast(1).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                if (dataSnapshot.exists()) {
+                if (dataSnapshot.hasChild("nomorKegiatan")) {
                     String nokeg = (String) dataSnapshot.child("nomorKegiatan").getValue().toString();
-                    nomorKegiatan = (Long.valueOf(nokeg) + 1);
-                    return;
-                }
-                else {
+                    nomorKegiatan= (Long.valueOf(nokeg)+1);
+                    Toast.makeText(ActivityDaftarAktivitasAdd.this, "anjohaaa", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(ActivityDaftarAktivitasAdd.this, "unaultara", Toast.LENGTH_LONG).show();
                     nomorKegiatan = 1;
-                    return;
                 }
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                /*if (dataSnapshot.exists()){
+                    String nokeg = (String) dataSnapshot.child("nomorKegiatan").getValue().toString();
+                    nomorKegiatan= (Long.valueOf(nokeg)+1);
+//                    Toast.makeText(ActivityDaftarAktivitasAdd.this, String.valueOf(nomorKegiatan), Toast.LENGTH_LONG).show();
+                }*/
             }
 
             @Override
@@ -116,6 +142,7 @@ public class ActivityDaftarAktivitasAdd extends AppCompatActivity {
 
             }
         });
+
     }
 
     private void showTimeDialog(final EditText etgwaktu) {
@@ -144,7 +171,6 @@ public class ActivityDaftarAktivitasAdd extends AppCompatActivity {
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 etgtanggal.setText(simpleDateFormat.format(calendar.getTime()));
-
             }
         };
 
@@ -152,8 +178,6 @@ public class ActivityDaftarAktivitasAdd extends AppCompatActivity {
     }
 
     private void addAktivitas() {
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("aktivitasPrakerin/" + firebaseUser.getUid());
-
         EditText etgkegiatan = findViewById(R.id.etg_keg);
         EditText etgdeskeg = findViewById(R.id.etg_desKeg);
         EditText etgtempatkegiatan = findViewById(R.id.etg_tempat);
