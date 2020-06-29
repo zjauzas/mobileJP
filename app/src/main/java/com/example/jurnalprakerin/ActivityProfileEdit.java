@@ -223,7 +223,7 @@ public class ActivityProfileEdit extends AppCompatActivity {
             databaseReference.child(String.valueOf(firebaseUser.getUid())).setValue(siswa).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
-                    Toast.makeText(ActivityProfileEdit.this, "Data Diri diperbarui.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ActivityProfileEdit.this, "Data Diri diperbarui.", Toast.LENGTH_SHORT).show();
                     Intent back = new Intent(getApplicationContext(), ActivityProfile.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(back);
                 }
@@ -287,7 +287,7 @@ public class ActivityProfileEdit extends AppCompatActivity {
             databaseReference.updateChildren(hashmap).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
-                    Toast.makeText(ActivityProfileEdit.this, "Data Diri diperbarui.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ActivityProfileEdit.this, "Data Diri diperbarui.", Toast.LENGTH_SHORT).show();
                     Intent back = new Intent(getApplicationContext(), ActivityProfile.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(back);
                 }
