@@ -228,7 +228,7 @@ public class ActivityDaftarAktivitasUpdateDelete extends AppCompatActivity {
         databaseReference.updateChildren(hashmap).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(getApplicationContext(), "Aktivitas diperbarui", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Aktivitas diperbarui", Toast.LENGTH_SHORT).show();
                 Intent back = new Intent(getApplicationContext(), ActivityDaftarAktivitas.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(back);
             }
@@ -246,7 +246,7 @@ public class ActivityDaftarAktivitasUpdateDelete extends AppCompatActivity {
         databaseReference.removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                Toast.makeText(getApplicationContext(), "Aktivitas dihapus.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Aktivitas dihapus.", Toast.LENGTH_SHORT).show();
                 Intent back = new Intent(getApplicationContext(), ActivityDaftarAktivitas.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(back);
             }

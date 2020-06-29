@@ -37,7 +37,7 @@ public class ActivityDaftarAktivitasAdd extends AppCompatActivity {
 
     private Aktivitas aktivitas = new Aktivitas();
 
-    long nomorKegiatan=0;
+    long nomorKegiatan;
     EditText etgtanggal;
     EditText etgwaktu;
 
@@ -82,54 +82,22 @@ public class ActivityDaftarAktivitasAdd extends AppCompatActivity {
             }
         });
 
-        /*databaseReference.limitToLast(1).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.hasChild("nomorKegiatan")) {
-                    String nokeg = (String) dataSnapshot.child("nomorKegiatan").getValue().toString();
-                    if (nokeg.equals(null)){
-                        nomorKegiatan= 1;
-                        Toast.makeText(ActivityDaftarAktivitasAdd.this, String.valueOf(nomorKegiatan), Toast.LENGTH_LONG).show();
-                    } else {
-                        nomorKegiatan= (Long.valueOf(nokeg)+1);
-                        Toast.makeText(ActivityDaftarAktivitasAdd.this, String.valueOf(nomorKegiatan), Toast.LENGTH_LONG).show();
-                    }
-                } else if (dataSnapshot.equals(null)) {
-                    Toast.makeText(ActivityDaftarAktivitasAdd.this, String.valueOf(nomorKegiatan), Toast.LENGTH_LONG).show();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });*/
-
+        nomorKegiatan = 1;
         databaseReference.limitToLast(1).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                if (dataSnapshot.exists()){
+                if (dataSnapshot.exists()) {
                     if (dataSnapshot.hasChild("nomorKegiatan")) {
                         String nokeg = (String) dataSnapshot.child("nomorKegiatan").getValue().toString();
-                        nomorKegiatan= (Long.valueOf(nokeg)+1);
-                        Toast.makeText(ActivityDaftarAktivitasAdd.this, "anjohaaa", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(ActivityDaftarAktivitasAdd.this, "unaultara", Toast.LENGTH_LONG).show();
-                        nomorKegiatan = 1;
+                        nomorKegiatan = (Long.valueOf(nokeg) + 1);
+//                        Toast.makeText(ActivityDaftarAktivitasAdd.this, "anjohaaa", Toast.LENGTH_LONG).show();
                     }
-                }else {
-                    Toast.makeText(ActivityDaftarAktivitasAdd.this, "uwaw", Toast.LENGTH_LONG).show();
-                    nomorKegiatan = 1;
                 }
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                /*if (dataSnapshot.exists()){
-                    String nokeg = (String) dataSnapshot.child("nomorKegiatan").getValue().toString();
-                    nomorKegiatan= (Long.valueOf(nokeg)+1);
-//                    Toast.makeText(ActivityDaftarAktivitasAdd.this, String.valueOf(nomorKegiatan), Toast.LENGTH_LONG).show();
-                }*/
+
             }
 
             @Override
@@ -183,6 +151,8 @@ public class ActivityDaftarAktivitasAdd extends AppCompatActivity {
     }
 
     private void addAktivitas() {
+//        Toast.makeText(ActivityDaftarAktivitasAdd.this, String.valueOf(nomorKegiatan), Toast.LENGTH_LONG).show();
+
         EditText etgkegiatan = findViewById(R.id.etg_keg);
         EditText etgdeskeg = findViewById(R.id.etg_desKeg);
         EditText etgtempatkegiatan = findViewById(R.id.etg_tempat);
@@ -215,7 +185,7 @@ public class ActivityDaftarAktivitasAdd extends AppCompatActivity {
             databaseReference.child(String.valueOf(nomorKegiatan)).setValue(aktivitas).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
-                    Toast.makeText(ActivityDaftarAktivitasAdd.this, "Aktivitas ditambahkan.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ActivityDaftarAktivitasAdd.this, "Aktivitas ditambahkan.", Toast.LENGTH_SHORT).show();
                     Intent back = new Intent(getApplicationContext(), ActivityDaftarAktivitas.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(back);
                 }
