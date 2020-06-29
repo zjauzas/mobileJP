@@ -108,12 +108,17 @@ public class ActivityDaftarAktivitasAdd extends AppCompatActivity {
         databaseReference.limitToLast(1).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                if (dataSnapshot.hasChild("nomorKegiatan")) {
-                    String nokeg = (String) dataSnapshot.child("nomorKegiatan").getValue().toString();
-                    nomorKegiatan= (Long.valueOf(nokeg)+1);
-                    Toast.makeText(ActivityDaftarAktivitasAdd.this, "anjohaaa", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(ActivityDaftarAktivitasAdd.this, "unaultara", Toast.LENGTH_LONG).show();
+                if (dataSnapshot.exists()){
+                    if (dataSnapshot.hasChild("nomorKegiatan")) {
+                        String nokeg = (String) dataSnapshot.child("nomorKegiatan").getValue().toString();
+                        nomorKegiatan= (Long.valueOf(nokeg)+1);
+                        Toast.makeText(ActivityDaftarAktivitasAdd.this, "anjohaaa", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(ActivityDaftarAktivitasAdd.this, "unaultara", Toast.LENGTH_LONG).show();
+                        nomorKegiatan = 1;
+                    }
+                }else {
+                    Toast.makeText(ActivityDaftarAktivitasAdd.this, "uwaw", Toast.LENGTH_LONG).show();
                     nomorKegiatan = 1;
                 }
             }
